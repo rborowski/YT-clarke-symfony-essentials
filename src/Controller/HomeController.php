@@ -13,9 +13,11 @@ class HomeController extends AbstractController
   #[Route("/", name: "home", methods:['GET'])]
   public function index(Request $request): Response
   {
-    dd($request);
-    return new Response("hello world");
-
+    //dd($request);
+    $response = new Response();
+    $response->headers->set("Content-Type", 'text/html');
+    $response->setContent("<h1>Hello World</h1>");
+    return $response;
   }
 
 }
